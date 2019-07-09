@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  shipping_first_name: MyString
+  shipping_last_name: MyString
+  shipping_first_name_kana: MyString
+  shipping_last_name_kana: MyString
+  shipping_postcode: MyString
+  shipping_address: MyText
+  is_delete: false
+
+two:
+  shipping_first_name: MyString
+  shipping_last_name: MyString
+  shipping_first_name_kana: MyString
+  shipping_last_name_kana: MyString
+  shipping_postcode: MyString
+  shipping_address: MyText
+  is_delete: false
