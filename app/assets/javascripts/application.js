@@ -16,6 +16,7 @@
 //= require turbolinks
 //= require bootstrap-sprockets
 //= require_tree ../../../vendor/assets/javascripts/.
+
 //= require_tree .
 $("document").ready(function(){
 	$("#theTarget").skippr();
