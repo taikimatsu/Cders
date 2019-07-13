@@ -10,6 +10,64 @@
   </head>
 
   <body>
+  <header>
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-3">
+          <% if enduser_signed_in? %>
+            <%= "ユーザー名：" %>
+            <%= link_to edit_enduser_path(current_enduser.id) do %>
+              <%= current_enduser.first_name + current_enduser.last_name %>
+            <% end %>
+          <% end %>
+        </div>
+        <div class="col-xs-3 col-xs-offset-9 input-group">
+            <input type="text" class="form-control" placeholder="検索キーワード">
+            <span class="input-group-btn">
+              <button type="button" class="btn btn-default">検索</button>
+            </span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="rogo"><h1 class="text-center">Cders</h1></div>
+      </div>
+      <nav class="row">
+        <ul class="nav-list" style="list-style-type: none">
+        <% if enduser_signed_in? %>
+          <li class="col-xs-2">
+            <%= link_to 'My page', enduser_path(current_enduser.id) %>
+          </li>
+          <li class="col-xs-2">
+            <%= link_to "Log out", destroy_enduser_session_path, method: :delete %>
+          </li>
+          <li class="col-xs-2 col-xs-offset-4 text-right">
+            <%= link_to 'お問い合わせ', new_contact_path %>
+          </li>
+          <li class="col-xs-2 text-right">
+            <%= link_to 'カート', '#' %>
+          </li>
+        <% else %>
+          <li class="col-xs-2">
+            <%= link_to "Sign up", new_enduser_registration_path %>
+          </li>
+          <li class="col-xs-2">
+            <%= link_to "Log in", new_enduser_session_path %>
+          </li>
+        <% end %>
+      </ul>
+      </nav>
+    </div>
+  </header>
     <%= yield %>
+    <footer class="container">
+      <p class="text-center">@cders</p>
+      <div class="row">
+        <div class="col-xs-1 col-xs-offset-11">
+          <% if enduser_signed_in? %>
+           <%= link_to "退会", "/endusers/#{current_enduser.id}/unsubscribe" %>
+          <% end %>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>
