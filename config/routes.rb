@@ -1,9 +1,17 @@
 Rails.application.routes.draw do
 
-# usersコントローラー
-resources :users, only: [:show, :edit, :update]
-get 'users/:id/unsubscribe' => 'users#unsubscribe'
-get 'users/complete' => 'users#complete'
+  devise_for :admins, path: 'admins', controllers: {
+  	sessions: 'admins/sessions',
+  	passwords: 'admins/passwords'
+  }
+  devise_for :endusers, path: 'endusers', controllers: {
+  	sessions: 'endusers/sessions',
+  	passwords: 'endusers/passwords',
+  	registrations: 'endusers/registrations'
+  }
+  resources :endusers, only: [:show, :edit, :update]
+  get 'endusers/:id/unsubscribe' => 'endusers#unsubscribe'
+  get 'endusers/complete' => 'endusers#complete'
 
 # itemsコントローラー
 resources :items, only: [:index, :show]
@@ -21,7 +29,7 @@ get 'orders/complete' => 'orders#complete'
 resources :contacts, only: [:new, :create]
 
 #admin_usersコントローラー
-resources :admin_users, only: [:index, :show, :edit, :update, :destroy]
+resources :admin_endusers, only: [:index, :show, :edit, :update, :destroy]
 
 #admin_itemsコントローラー
 resources :admin_items, only: [:index, :show, :new, :edit, :update, :destroy]
@@ -31,12 +39,6 @@ resources :admin_orders, only: [:index, :show, :update]
 
 #admin_contactsコントローラー
 resources :admin_contacts, only: [:index, :show, :create]
-
-
-
-
-
-
-resources :admin_users, only: [:index, :show, :edit, :update, :destroy]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+root 'items#index'
 end
