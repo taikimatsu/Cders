@@ -1,3 +1,46 @@
 // Place all the styles related to the items controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+ #container{
+ 	height: 400px;
+ 	width: 700px;
+ 	margin: 0 auto;
+ }
+
+#title{
+	margin: 0 auto;
+	margin-top: 30px;
+	margin-bottom: 20px;
+	text-align: center;
+}
+
+#subtitle{
+	text-align: center;
+}
+
+#box{
+	display: inline-block;
+	height: 250px;
+	width: 275px;
+}
+
+#backbox{
+	width: 270px;
+	height: 850px;
+	background-color: white;
+	border: solid 2px;
+}
+
+#rankbox{
+	display: inline-block;
+	width: 270px;
+	margin-top: 20px;
+	margin-left: 20px
+}
+
+#item-info{
+	margin-bottom: 20px;
+	font-size: 20px;
+}
